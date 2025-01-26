@@ -31,9 +31,9 @@ def generate_backstory():
     try:
         # Make the API request to OpenAI
         response = openai.completions.create(
-            model="gpt-3.5-turbo-instruct",  # You can use gpt-4 if available
+            model="gpt-3.5-turbo",  # You can use gpt-4 if available
             prompt=prompt,
-            max_tokens=150
+            max_tokens=300
         )
 
         # Get the generated text from the response
