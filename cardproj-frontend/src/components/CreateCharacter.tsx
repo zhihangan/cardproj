@@ -162,8 +162,9 @@ function CreateCharacter() {
     const navigate = useNavigate();
 
     return (
-        <div style={{ backgroundImage: `url(${background})` }} className="h-screen bg-cover bg-center flex flex-col">
-            <div className="flex flex-row justify-end items-center space-x-2 w-screen">
+        <div style={{ backgroundImage: `url(${background})` }} className="h-full w-screen bg-cover bg-center flex flex-col">
+            {/* Header */}
+            <div className="fixed top-0 left-0 w-full flex flex-row justify-end items-center space-x-2">
                 <button onClick={() => navigate("/home")} className="bg-black text-white text-center rounded-md p-4 w-fit">Home</button>
                 <button onClick={() => navigate("/user-characters")} className="bg-black text-white text-center rounded-md p-4 w-fit">Your Characters</button>
                 <button onClick={() => navigate("/global-characters")} className="bg-black text-white text-center rounded-md p-4 w-fit">Everyone's Characters</button>
