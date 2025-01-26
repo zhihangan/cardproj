@@ -138,38 +138,75 @@ type Score = {
         return archetypes[highestTrait as keyof Score];
     };
 
-    // const showScores
+
+    if (currentQuestionIndex >= questions.length) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-blue-900 text-white">
+                <h1 className="text-3xl font-bold">Quiz Complete!</h1>
+                <p className="mt-4">Your scores:</p>
+                <ul className="mt-2">
+                    {Object.entries(scores).map(([trait, score]) => (
+                        <li key={trait} className="capitalize">{trait}: {score}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+
+    const currentQuestion = questions[currentQuestionIndex];
+
+    // return (
+    //     <div className="min-h-screen flex items-center justify-center bg-blue-900 text-white">
+    //         <div className="max-w-2xl text-center">
+    //             <h1 className="text-2xl font-bold mb-6">{currentQuestion.question}</h1>
+    //             <div className="grid grid-cols-3 gap-4">
+    //                 {currentQuestion.answers.map((answer, index) => (
+    //                     <button
+    //                         key={index}
+    //                         onClick={() => handleAnswer(answer.score)}
+    //                         className="bg-white text-blue-900 font-semibold h-14 w-64 rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all "
+    //                     >
+    //                         {answer.text}
+    //                     </button>
+    //                 ))}
+    //             </div>
+    //         </div>
+    //     </div>
+    // );
+
+
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-blue-900 p-4 text-white">
-        {!showResults ? (
-            <div
-            className={`w-full max-w-md p-6 bg-white text-black rounded-lg shadow-md transform transition-opacity duration-500 ${
+        <div className="min-h-screen flex items-center justify-center bg-blue-900 text-white">
+    {!showResults ? (
+        <div
+            className={`w-full max-w-md p-6 bg-gray-300 text-black rounded-lg shadow-md transform transition-opacity duration-500 ${
                 transitioning ? "opacity-0" : "opacity-100"
             }`}
-            >
-            <h2 className="text-xl font-bold mb-6 text-center">
+        >
+            <h2 className="text-2xl font-bold mb-6 text-center">
                 {questions[currentQuestionIndex].question}
             </h2>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-6">
                 {questions[currentQuestionIndex].answers.map((answer, index) => (
-                <button
-                    key={index}
-                    onClick={() => handleAnswer(answer.score)}
-                    className="col-span-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300"
-                >
-                    {answer.text}
-                </button>
+                    <button
+                        key={index}
+                        onClick={() => handleAnswer(answer.score)}
+                        className="bg-gray-50 text-amber-900 font-semibold h-14 w-full rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transform transition-all hover:scale-110"
+                    >
+                        {answer.text}
+                    </button>
                 ))}
             </div>
-            </div>
-        ) : (
-            <div className="w-full max-w-md p-6 bg-white text-black rounded-lg shadow-md text-center">
-            <h2 className="text-2xl font-bold mb-4">Your Character:</h2>
-            <p className="text-lg text-gray-700">{getResult()}</p>
-            </div>
-        )}
         </div>
+    ) : (
+        <div className="w-full max-w-md p-6 bg-white text-black rounded-lg shadow-md text-center">
+            <h2 className="text-3xl font-bold mb-4 text-green-900">Your Character:</h2>
+            <p className="text-xl text-gray-700">{getResult()}</p>
+        </div>
+    )}
+</div>
+
     );
 }
 
