@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import background from '../assets/char_background.jpg';
+import background from '../assets/image.jpg';
 
 // Define TypeScript types
 type Score = {
@@ -157,8 +157,10 @@ type Score = {
     const currentQuestion = questions[currentQuestionIndex];
 
 
+
+
     return (
-        <div style={{ backgroundImage: `url(${background})` }} className="h-screen bg-cover bg-center flex flex-col justify-center items-center ">
+        <div style={{ backgroundImage: `url(${background})` }} className="h-screen bg-cover bg-center flex flex-col justify-center items-center">
             <div className="min-h-screen flex items-center justify-center text-white">
                 {!showResults ? (
                     <div
