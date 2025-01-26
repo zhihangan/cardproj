@@ -176,7 +176,7 @@ type Score = {
                                 <button
                                     key={index}
                                     onClick={() => handleAnswer(answer.score)}
-                                    className="bg-gray-50 text-amber-900 font-semibold h-14 w-full rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transform transition-all hover:scale-110"
+                                    className="bg-gray-50 text-amber-900 font-semibold h-17 w-full rounded-lg shadow-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transform transition-all hover:scale-110"
                                 >
                                     {answer.text}
                                 </button>
