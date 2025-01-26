@@ -13,6 +13,7 @@ load_dotenv()
 
 # Set OpenAI API key (make sure to securely set it)
 openai.api_key = os.getenv("OPENAI_KEY")
+print(openai.api_key)
 
 # Define a route to handle user input and generate a backstory
 @app.route("/generate_backstory", methods=["POST"])
@@ -30,7 +31,7 @@ def generate_backstory():
     try:
         # Make the API request to OpenAI
         response = openai.completions.create(
-            model="text-davinci-003",  # You can use gpt-4 if available
+            model="gpt-3.5-turbo-instruct",  # You can use gpt-4 if available
             prompt=prompt,
             max_tokens=150
         )
