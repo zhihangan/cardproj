@@ -1,5 +1,5 @@
 /**
- * TODO: Add buttons to background image, create header
+ * TODO: create header
  */
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
