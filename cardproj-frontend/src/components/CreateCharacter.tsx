@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 import background from '../assets/image.jpg';
 
 /**
@@ -121,7 +122,7 @@ function CreateCharacter() {
     const handleAnswer = (score: Partial<Score>) => {
         const updatedScores = { ...scores };
         for (const trait in score) {
-        updatedScores[trait as keyof Score] += score[trait as keyof Score] || 0;
+            updatedScores[trait as keyof Score] += score[trait as keyof Score] || 0;
         }
         setScores(updatedScores);
 
@@ -138,12 +139,23 @@ function CreateCharacter() {
 
     const getResult = () => {
         const highestTrait = Object.keys(scores).reduce((a, b) =>
-        scores[a as keyof Score] > scores[b as keyof Score] ? a : b
+            scores[a as keyof Score] > scores[b as keyof Score] ? a : b
         );
         return archetypes[highestTrait as keyof Score];
     };
 
-
+    const [story, setStory] = useState("");
+    
+    const genStory = async () => {
+        try {
+            const response = await axios.post("http://localhost:5000/generate_backstory", scores);
+            console.log(response);
+            setStory("Coming!");
+        } catch(error) {
+            console.error(error);
+            setStory("Could not generate story. open console.");
+        }
+    }
     if (currentQuestionIndex >= questions.length) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-blue-900 text-white">
@@ -163,7 +175,6 @@ function CreateCharacter() {
 
     return (
         <div style={{ backgroundImage: `url(${background})` }} className="h-full w-screen bg-cover bg-center flex flex-col">
-            {/* Header */}
             <div className="fixed top-0 left-0 w-full flex flex-row justify-end items-center space-x-2">
                 <button onClick={() => navigate("/home")} className="bg-black text-white text-center rounded-md p-4 w-fit">Home</button>
                 <button onClick={() => navigate("/user-characters")} className="bg-black text-white text-center rounded-md p-4 w-fit">Your Characters</button>
@@ -196,7 +207,9 @@ function CreateCharacter() {
                     ) : (
                         <div className="w-full max-w-md p-6 bg-white text-black rounded-lg shadow-md text-center">
                             <h2 className="text-3xl font-bold mb-4 text-green-900">Your Character:</h2>
-                            <p className="text-xl text-gray-700">{getResult()}</p>
+                            <p className="text-xl text-gray-700 mb-4">{getResult()}</p>
+                            <button className="w-fit p-2 bg-green-900 rounded-md text-white" onClick={genStory}>Click to Generate Story</button>
+                            <p>{story}</p>
                         </div>
                     )}
                 </div>

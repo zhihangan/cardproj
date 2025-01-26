@@ -1,11 +1,18 @@
 import openai
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+import os
+from dotenv import load_dotenv
 
 # Set up Flask
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:5173"])
+
+# Load .env file
+load_dotenv()
 
 # Set OpenAI API key (make sure to securely set it)
-openai.api_key = "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"  # Or use an environment variable
+openai.api_key = os.getenv("OPENAI_KEY")
 
 # Define a route to handle user input and generate a backstory
 @app.route("/generate_backstory", methods=["POST"])

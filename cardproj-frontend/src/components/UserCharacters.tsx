@@ -12,7 +12,7 @@ function UserCharacters() {
                 <button onClick={() => navigate("/login")} className="bg-black text-white text-center rounded-md p-4 w-fit">Logout</button>
             </div>
             <div className="flex flex-col self-center justify-center h-screen bg-white">
-                <p>FIXME</p>
+                <p>To be implementend in the future.</p>
             </div>
         </div>
     )

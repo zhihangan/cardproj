@@ -1,0 +1,1 @@
+Install flask, python-dotenv, and flask-cors before running.

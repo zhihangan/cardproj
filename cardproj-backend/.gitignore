@@ -1,0 +1,2 @@
+# please don't expose your API keys!
+.env
