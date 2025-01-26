@@ -147,8 +147,11 @@ function CreateCharacter() {
     const [story, setStory] = useState("");
     
     const genStory = async () => {
+        console.log(typeof { ...scores });
         try {
-            const response = await axios.post("http://localhost:5000/generate_backstory", scores);
+            const response = await axios.post("http://localhost:5000/generate_backstory", { values: scores }, {
+                headers: { "Content-Type": "application/json" },
+            });
             console.log(response);
             setStory("Coming!");
         } catch(error) {
