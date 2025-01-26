@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Set OpenAI API key (make sure to securely set it)
-openai.api_key = "open-ai-key"  # Or use an environment variable
+openai.api_key = "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"  # Or use an environment variable
 
 # Define a route to handle user input and generate a backstory
 @app.route("/generate_backstory", methods=["POST"])
