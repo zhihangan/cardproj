@@ -12,7 +12,7 @@ function Home() {
             </video>
             <div className="relative z-10 flex flex-col">
                 <div className="flex flex-row justify-end items-center">
-                    <button onClick={() => navigate("/login")} className="bg-black text-white text-center rounded-md p-4 w-fit">Logout</button>
+                    <button onClick={() => navigate("/login")} className="fixed top-3 right-2 bg-black text-white text-center rounded-md p-4 w-fit transform transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Log Out</button>
                 </div>
                 <div className="h-screen flex flex-col justify-center items-center space-y-4">
                     <button onClick={() => navigate("/create-character")} 

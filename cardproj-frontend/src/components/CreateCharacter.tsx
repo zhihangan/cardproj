@@ -175,11 +175,11 @@ function CreateCharacter() {
 
     return (
         <div style={{ backgroundImage: `url(${background})` }} className="h-full w-screen bg-cover bg-center flex flex-col">
-            <div className="fixed top-0 left-0 w-full flex flex-row justify-end items-center space-x-2">
-                <button onClick={() => navigate("/home")} className="bg-black text-white text-center rounded-md p-4 w-fit">Home</button>
-                <button onClick={() => navigate("/user-characters")} className="bg-black text-white text-center rounded-md p-4 w-fit">Your Characters</button>
-                <button onClick={() => navigate("/global-characters")} className="bg-black text-white text-center rounded-md p-4 w-fit">Everyone's Characters</button>
-                <button onClick={() => navigate("/login")} className="bg-black text-white text-center rounded-md p-4 w-fit">Logout</button>
+            <div className="fixed top-3 right-2 w-full flex flex-row justify-end items-center space-x-4">
+                <button onClick={() => navigate("/home")} className="bg-black text-white text-center rounded-md p-4 w-fit transform transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Home</button>
+                <button onClick={() => navigate("/user-characters")} className="bg-black text-white text-center rounded-md p-4 w-fit transform transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Your Characters</button>
+                <button onClick={() => navigate("/global-characters")} className="bg-black text-white text-center rounded-md p-4 w-fit transform transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Everyone's Characters</button>
+                <button onClick={() => navigate("/login")} className="bg-black text-white text-center rounded-md p-4 w-fit transform transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Logout</button>
             </div>
             <div className="flex flex-col justify-center items-center">
                 <div className="min-h-screen flex items-center justify-center text-white">

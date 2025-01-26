@@ -9,10 +9,15 @@ function Landing() {
     const navigate = useNavigate();
     return (
         <div style={{ backgroundImage: `url(${background})` }} className="h-screen bg-cover bg-center flex flex-col justify-center items-center">
-            <h1 className="text-3xl">Character Gen!</h1>
-            <button onClick={() => navigate("/login")} className="bg-black text-white rounded-md p-2 w-3xs">Login</button>
+            <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }} className="text-white px-16 py-8 rounded-lg shadow-lg text-center w-full max-w-xl h-sm">
+                Centered Horizontal Rectangle with Text
+            </div>
+            <button onClick={() => navigate("/login")} className="mt-4 bg-black text-white rounded-md px-4 py-2 w-32 hover:bg-white hover:text-black transform hover:scale-105 transition-all">
+                Login
+            </button>
         </div>
-    )
+    );
 }
+
 
 export default Landing;

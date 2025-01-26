@@ -6,7 +6,7 @@ function Login() {
     return (
         <div style={{ backgroundImage: `url(${background})` }} className="h-screen bg-cover bg-center flex flex-col">
             <div className="flex flex-row justify-end items-center">
-                <button onClick={() => navigate("/")} className="bg-black text-white text-center rounded-md p-4 w-fit">Go Back</button>
+                <button onClick={() => navigate("/")} className="fixed top-3 right-2 bg-black text-white text-center rounded-md p-4 w-fit transform transition-transform duration-300 hover:scale-110 hover:bg-white hover:text-black">Go Back</button>
             </div>
             <div className="h-screen flex flex-col justify-center items-center">
                 <div className="bg-white p-8 rounded-lg">
